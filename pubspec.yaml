@@ -1,0 +1,32 @@
+name: food_delivery_tutorial
+description: A flutter delivery app tutorial.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+  flutter_icons: ^1.1.0
+  cached_network_image: ^2.3.2+1
+  toast: ^0.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+  fonts:
+    - family: Enriqueta
+      fonts:
+        - asset: assets/fonts/Enriqueta-Regular.ttf
+        - asset: assets/fonts/Enriqueta-Bold.ttf
+          weight: 700
