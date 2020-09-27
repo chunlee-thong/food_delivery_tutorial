@@ -16,10 +16,10 @@ final List<FoodModel> foodList = [
     image: "https://source.unsplash.com/200x200/?soup",
   ),
   FoodModel(
-    name: "Cream and Corn Soup",
-    price: 29.99,
+    name: "Chicken Sharma",
+    price: 12.99,
     rating: 4.5,
-    image: "https://source.unsplash.com/200x200/?soup",
+    image: "https://source.unsplash.com/200x200/?chicken",
   ),
   FoodModel(
     name: "Cream and Corn Soup",

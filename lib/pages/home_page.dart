@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_tutorial/model/category_model.dart';
 import 'package:food_delivery_tutorial/model/food_model.dart';
+import 'package:food_delivery_tutorial/widgets/custom_icon_button.dart';
 import 'package:food_delivery_tutorial/widgets/filter_button.dart';
+import 'package:food_delivery_tutorial/widgets/food_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +23,8 @@ class _HomePageState extends State<HomePage> {
             buildSearch(),
             buildFilter(),
             buildFoodList(),
+            buildSectionTitle(),
+            buildCategoryList(),
           ],
         ),
       ),
@@ -33,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton(
+            CustomIconButton(
               onPressed: () {},
               icon: Icon(Icons.menu),
             ),
@@ -71,13 +76,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        Card(
-          margin: EdgeInsets.only(left: 12),
-          color: Colors.green,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.filter_list),
-          ),
+        CustomIconButton(
+          margin: EdgeInsets.only(left: 8),
+          icon: Icon(Icons.filter_list),
+          onPressed: () {},
+          backgroundColor: Colors.green,
         ),
       ],
     );
@@ -114,14 +117,52 @@ class _HomePageState extends State<HomePage> {
   Widget buildFoodList() {
     return Container(
       height: 220,
+      margin: EdgeInsets.only(top: 24),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: foodList.length,
         itemBuilder: (context, index) {
           FoodModel food = foodList[index];
-          return Text(food.name);
+          return FoodCard(food: food);
         },
       ),
+    );
+  }
+
+  Widget buildSectionTitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Explore Categories",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        FlatButton(
+          onPressed: () {},
+          textColor: Colors.green,
+          child: Text("View all"),
+        ),
+      ],
+    );
+  }
+
+  Widget buildCategoryList() {
+    return GridView.builder(
+      itemCount: categories.length,
+      shrinkWrap: true,
+      primary: false,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) {
+        final Category category = categories[index];
+        return Card(
+          child: Center(child: Text(category.name)),
+        );
+      },
     );
   }
 }
