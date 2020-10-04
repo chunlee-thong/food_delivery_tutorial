@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_tutorial/model/category_model.dart';
 import 'package:food_delivery_tutorial/model/food_model.dart';
+import 'package:food_delivery_tutorial/widgets/category_card.dart';
 import 'package:food_delivery_tutorial/widgets/custom_icon_button.dart';
 import 'package:food_delivery_tutorial/widgets/filter_button.dart';
 import 'package:food_delivery_tutorial/widgets/food_card.dart';
@@ -156,12 +157,11 @@ class _HomePageState extends State<HomePage> {
       primary: false,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        childAspectRatio: 16 / 6,
       ),
       itemBuilder: (context, index) {
         final Category category = categories[index];
-        return Card(
-          child: Center(child: Text(category.name)),
-        );
+        return CategoryCard(category: category);
       },
     );
   }
