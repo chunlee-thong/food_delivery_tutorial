@@ -26,7 +26,7 @@ class CustomIconButton extends StatelessWidget {
       margin: margin,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius),
-          side: BorderSide(width: 0.2, color: borderColor)),
+          side: BorderSide(width: 0.7, color: borderColor)),
       child: InkWell(
         onTap: onPressed ?? () {},
         child: Padding(

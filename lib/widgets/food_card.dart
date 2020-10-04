@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_tutorial/model/food_model.dart';
+import 'package:food_delivery_tutorial/pages/food_detail_page.dart';
 
 import 'custom_icon_button.dart';
 
@@ -9,16 +10,22 @@ class FoodCard extends StatelessWidget {
   const FoodCard({Key key, this.food}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
-      margin: EdgeInsets.only(right: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildFoodImage(),
-          SizedBox(height: 8),
-          buildFoodInfo(),
-        ],
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => FoodDetailPage(food: food)));
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.7,
+        margin: EdgeInsets.only(right: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildFoodImage(),
+            SizedBox(height: 8),
+            buildFoodInfo(),
+          ],
+        ),
       ),
     );
   }
